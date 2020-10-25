@@ -14,7 +14,7 @@ namespace MyFootballProject
     public partial class StadiumControl1 : UserControl
     {
         FootballProjectEntities db = new FootballProjectEntities();
-
+        Stadion selectedstadium;
         public StadiumControl1()
         {
             InitializeComponent();
@@ -59,14 +59,7 @@ namespace MyFootballProject
                 }
             }
         }
-        private void dtgStadium_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            btnAdd.Visible = false;
-            btnDelete.Visible = true;          
-            pic1.Visible = false;
-            pic2.Visible = false;
-                
-        }
+      
 
         private void btnDelete_Click(object sender, EventArgs e)
         {         
@@ -74,11 +67,39 @@ namespace MyFootballProject
            
             if (res == DialogResult.Yes)
             {
-                
-                
-            }
+
+                db.Stadions.Remove(selectedstadium);
+                db.SaveChanges();
+                FillDataStadium();
+            };
         }
 
-       
+        private void dtgStadium_RowHeaderMouseDoubleClick_1(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            btnDelete.Visible = true;
+            btnEdit.Visible = true;
+            btnAdd.Visible = false;
+            pic1.Visible = false;
+            pic2.Visible = false;
+            int stadiumId = (int)dtgStadium.Rows[e.RowIndex].Cells[0].Value;
+            selectedstadium = db.Stadions.First(x => x.Id == stadiumId);
+            txtStadium.Text = selectedstadium.Name;
+
+        }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            btnEdit.Visible = true;
+            btnAdd.Visible = false;
+            pic1.Visible = false;
+            pic2.Visible = false;
+            string stadName = txtStadium.Text;
+            if(stadName !=string.Empty)
+            {
+                selectedstadium.Name = stadName;            
+                db.SaveChanges();
+                FillDataStadium();
+            }
+        }
     }
 }
