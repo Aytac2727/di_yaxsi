@@ -8,12 +8,12 @@
         <EntityTypeShape EntityType="FootballProjectModel.Admin" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="FootballProjectModel.Report" Width="1.5" PointX="5.75" PointY="3.75" IsExpanded="true" />
         <EntityTypeShape EntityType="FootballProjectModel.Room" Width="1.5" PointX="5.25" PointY="6.25" />
-        <EntityTypeShape EntityType="FootballProjectModel.sysdiagram" Width="1.5" PointX="8.375" PointY="0.75" />
         <EntityTypeShape EntityType="FootballProjectModel.Stadion" Width="1.5" PointX="3.375" PointY="8.875" />
         <EntityTypeShape EntityType="FootballProjectModel.AllWorker" Width="1.5" PointX="5.375" PointY="8.875" />
         <EntityTypeShape EntityType="FootballProjectModel.Rezerv" Width="1.5" PointX="8.5" PointY="6.75" />
         <AssociationConnector Association="FootballProjectModel.FK_Rezervs_Rooms" />
         <AssociationConnector Association="FootballProjectModel.FK_Rezervs_Stadions" />
+        <EntityTypeShape EntityType="FootballProjectModel.sysdiagram" Width="1.5" PointX="0.75" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

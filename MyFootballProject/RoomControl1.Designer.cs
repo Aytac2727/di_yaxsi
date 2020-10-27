@@ -34,17 +34,19 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.btnAddRoom = new System.Windows.Forms.Button();
+            this.pic2 = new System.Windows.Forms.PictureBox();
+            this.pic1 = new System.Windows.Forms.PictureBox();
+            this.btnAdd = new System.Windows.Forms.Button();
             this.txtRoomCount = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.dtgRoom = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
             this.txtRoomName = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.btnEdit = new System.Windows.Forms.Button();
+            this.btnDelete = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.pic2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgRoom)).BeginInit();
             this.SuspendLayout();
             // 
@@ -56,42 +58,42 @@
             this.panel1.Size = new System.Drawing.Size(258, 3);
             this.panel1.TabIndex = 49;
             // 
-            // pictureBox2
+            // pic2
             // 
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(590, 384);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(32, 32);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 48;
-            this.pictureBox2.TabStop = false;
+            this.pic2.Image = ((System.Drawing.Image)(resources.GetObject("pic2.Image")));
+            this.pic2.Location = new System.Drawing.Point(590, 384);
+            this.pic2.Name = "pic2";
+            this.pic2.Size = new System.Drawing.Size(32, 32);
+            this.pic2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pic2.TabIndex = 48;
+            this.pic2.TabStop = false;
             // 
-            // pictureBox1
+            // pic1
             // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(512, 384);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(32, 32);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 47;
-            this.pictureBox1.TabStop = false;
+            this.pic1.Image = ((System.Drawing.Image)(resources.GetObject("pic1.Image")));
+            this.pic1.Location = new System.Drawing.Point(512, 384);
+            this.pic1.Name = "pic1";
+            this.pic1.Size = new System.Drawing.Size(32, 32);
+            this.pic1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pic1.TabIndex = 47;
+            this.pic1.TabStop = false;
             // 
-            // btnAddRoom
+            // btnAdd
             // 
-            this.btnAddRoom.BackColor = System.Drawing.Color.White;
-            this.btnAddRoom.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(137)))), ((int)(((byte)(115)))));
-            this.btnAddRoom.FlatAppearance.BorderSize = 3;
-            this.btnAddRoom.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
-            this.btnAddRoom.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
-            this.btnAddRoom.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddRoom.Font = new System.Drawing.Font("Montserrat", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddRoom.Location = new System.Drawing.Point(502, 370);
-            this.btnAddRoom.Name = "btnAddRoom";
-            this.btnAddRoom.Size = new System.Drawing.Size(130, 57);
-            this.btnAddRoom.TabIndex = 44;
-            this.btnAddRoom.Text = "Add";
-            this.btnAddRoom.UseVisualStyleBackColor = false;
-            this.btnAddRoom.Click += new System.EventHandler(this.btnAddRoom_Click);
+            this.btnAdd.BackColor = System.Drawing.Color.White;
+            this.btnAdd.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(137)))), ((int)(((byte)(115)))));
+            this.btnAdd.FlatAppearance.BorderSize = 3;
+            this.btnAdd.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.btnAdd.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdd.Location = new System.Drawing.Point(502, 370);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(130, 57);
+            this.btnAdd.TabIndex = 44;
+            this.btnAdd.Text = "Add";
+            this.btnAdd.UseVisualStyleBackColor = false;
+            this.btnAdd.Click += new System.EventHandler(this.btnAddRoom_Click);
             // 
             // txtRoomCount
             // 
@@ -120,7 +122,7 @@
             this.dtgRoom.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(137)))), ((int)(((byte)(115)))));
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(137)))), ((int)(((byte)(115)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle1.NullValue = null;
             dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(10, 5, 10, 5);
@@ -144,7 +146,7 @@
             this.dtgRoom.Name = "dtgRoom";
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(12, 5, 12, 5);
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Aquamarine;
@@ -165,6 +167,7 @@
             this.dtgRoom.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.dtgRoom.Size = new System.Drawing.Size(741, 224);
             this.dtgRoom.TabIndex = 43;
+            this.dtgRoom.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dtgRoom_RowHeaderMouseDoubleClick);
             // 
             // panel2
             // 
@@ -193,26 +196,65 @@
             this.label2.TabIndex = 50;
             this.label2.Text = "Name:";
             // 
+            // btnEdit
+            // 
+            this.btnEdit.BackColor = System.Drawing.Color.White;
+            this.btnEdit.FlatAppearance.BorderColor = System.Drawing.Color.Yellow;
+            this.btnEdit.FlatAppearance.BorderSize = 3;
+            this.btnEdit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.btnEdit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.btnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEdit.Location = new System.Drawing.Point(502, 378);
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Size = new System.Drawing.Size(85, 43);
+            this.btnEdit.TabIndex = 57;
+            this.btnEdit.Text = "Edit";
+            this.btnEdit.UseVisualStyleBackColor = false;
+            this.btnEdit.Visible = false;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.BackColor = System.Drawing.Color.White;
+            this.btnDelete.FlatAppearance.BorderColor = System.Drawing.Color.Red;
+            this.btnDelete.FlatAppearance.BorderSize = 3;
+            this.btnDelete.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.btnDelete.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDelete.Location = new System.Drawing.Point(593, 378);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(85, 43);
+            this.btnDelete.TabIndex = 56;
+            this.btnDelete.Text = "Delete";
+            this.btnDelete.UseVisualStyleBackColor = false;
+            this.btnDelete.Visible = false;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
             // RoomControl1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.btnEdit);
+            this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.txtRoomName);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.pictureBox2);
-            this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.btnAddRoom);
+            this.Controls.Add(this.pic2);
+            this.Controls.Add(this.pic1);
+            this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.txtRoomCount);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dtgRoom);
             this.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Name = "RoomControl1";
             this.Size = new System.Drawing.Size(741, 487);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.Load += new System.EventHandler(this.RoomControl1_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pic2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgRoom)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -222,14 +264,16 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button btnAddRoom;
+        private System.Windows.Forms.PictureBox pic2;
+        private System.Windows.Forms.PictureBox pic1;
+        private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.TextBox txtRoomCount;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dtgRoom;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.TextBox txtRoomName;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button btnEdit;
+        private System.Windows.Forms.Button btnDelete;
     }
 }

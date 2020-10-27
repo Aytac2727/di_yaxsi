@@ -30,8 +30,8 @@ namespace MyFootballProject
             {
                 re.Id,
                 Customer_Name = re.Customer.Fullname,
-                Stadium_Name = re.Stadion.Name,      
-                Room_Count = re.Room.Name,
+                Stadium_Name = re.Stadion.Name, 
+                Room_Name = re.Room.Name,
                 re.Date,
                 re.DateFrom,
                 re.DateTo,
@@ -40,6 +40,13 @@ namespace MyFootballProject
             }).ToList();
             dtgRezervation.Columns[0].Visible = false;
             db.SaveChanges();
+            /*for (var i = 0; i < dtgRezervation.Rows.Count; i++)
+            {
+                DateTime dtTime = (DateTime)dtgRezervation.Rows[i].Cells[dtgRezervation.Columns.Count - 3].Value;
+                DateTime dtFrom = (DateTime)dtgRezervation.Rows[i].Cells[dtgRezervation.Columns.Count - 3].Value;
+                DateTime dtTo = (DateTime)dtgRezervation.Rows[i].Cells[dtgRezervation.Columns.Count - 2].Value;
+                string Sta = dtgRezervation.Rows[i].Cells[2].Value.ToString();
+            }*/
         }
       
         public void FillComboCustomer()
@@ -66,52 +73,40 @@ namespace MyFootballProject
         }
 
         private void btnAddRezerv_Click(object sender, EventArgs e)
-        {
-
+        {          
             string cusName = cmbCustomer.Text;         
             string stadiumName = cmbStadium.Text;
-           
+            string roomName = cmbRoom.Text;
             decimal price = numPrice.Value;
             DateTime dateF = dateFrom.Value;
             DateTime dateT = dateTo.Value;
             DateTime dateFull = dateTime.Value;
             string[] myArr = new string[] { cusName, stadiumName};
             if(extentions.IsEmpty(myArr, string.Empty))
-            {
-                string RName = cmbRoom.Text;
-                Rezerv selRoom = db.Rezervs.First(m => m.Room.Name == RName);
-                if (!checkRoom.Items.Contains(RName))
-                {
-                    checkRoom.Items.Add(RName, true);
-                }
-                int stId = db.Stadions.First(s => s.Name == stadiumName).Id;
-                int cusId = db.Customers.First(c => c.Fullname == cusName).Id;
-                Rezerv newRezerv = new Rezerv()
-                {
-                    RoomId = selRoom.Id,
-                    StadiumId = stId,
-                    CustomerId = cusId,
-                    Date = dateFull,
-                    DateFrom = dateF,
-                    DateTo = dateT,
-                    Price = price
-                };
-                db.Rezervs.Add(newRezerv);
-                db.SaveChanges();
-                FillDataRezerv();
-                AddRoom();
+            {   
+                    int roId = db.Rooms.First(r => r.Name == roomName).Id;
+                    int stId = db.Stadions.First(s => s.Name == stadiumName).Id;
+                    int cusId = db.Customers.First(c => c.Fullname == cusName).Id;
+                
+                    Rezerv newRezerv = new Rezerv()
+                    {
+                        RoomId = roId,
+                        StadiumId = stId,
+                        CustomerId = cusId,
+                        Date = dateFull,
+                        DateFrom = dateF,
+                        DateTo = dateT,
+                        Price = price
+                    };
+                    db.Rezervs.Add(newRezerv);
+                    db.SaveChanges();
+                    FillDataRezerv();             
+
             }
         }
 
-        private void checkRoom_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            int selected = checkRoom.SelectedIndex;
-            if (selected != -1)
-            {
-                checkRoom.Items.RemoveAt(selected);
-            }
-        }
-        public void AddRoom()
+     /*  
+        public void AddRoom(int cusId)
         {
             for (int i = checkRoom.Items.Count - 1; i >= 0; i--)
             {
@@ -123,7 +118,7 @@ namespace MyFootballProject
                     roomId = selectedRoom.Id;
                     db.Rezervs.Add(new Rezerv()
                     {
-                        
+                        CustomerId = cusId,
                         RoomId = roomId
                     });
                 }       
@@ -132,19 +127,7 @@ namespace MyFootballProject
             }
         }
 
-        private void cmbRoom_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if(e.KeyChar == 13)
-            {
-                string roomName = cmbRoom.Text;
-                if(!checkRoom.Items.Contains(roomName))
-                {
-                    checkRoom.Items.Add(roomName);
-                }
-            }
-        }
-
-        /*public void AddCheckedListFill()
+        public void AddCheckedListFill()
         {
             string RName = cmbRoom.Text;
             Rezerv selRoom = db.Rezervs.First(m => m.Room.Name == RName);
@@ -152,6 +135,48 @@ namespace MyFootballProject
             {
                 checkRoom.Items.Add(RName, true);
             }
-        }*/
+        }
+
+        private void cmbRoom_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+            {
+                string roomName = cmbRoom.Text;
+                if (!checkRoom.Items.Contains(roomName))
+                {
+                    checkRoom.Items.Add(roomName);
+                }              
+            }
+           
+        }
+        public void AddCusWithRoom(int cusId)
+        {
+            for (int i = checkRoom.Items.Count-1; i >=0; i--)
+            {
+                string roomName = checkRoom.Items[i].ToString();
+                Room selectedRoom = db.Rooms.FirstOrDefault(ro => ro.Name == roomName);
+                int roomId = selectedRoom.Id;
+                db.Customer_To_Room.Add(new Customer_To_Room()
+                {
+                    CustomerId = cusId,
+                    RoomId = roomId
+                });
+                db.SaveChanges();
+            }
+        }
+        private void checkRoom_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int selected = checkRoom.SelectedIndex;
+            if (selected != -1)
+            {
+                checkRoom.Items.RemoveAt(selected);
+            }
+        }
+     */
+
+        private void picExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

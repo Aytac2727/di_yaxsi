@@ -14,6 +14,7 @@ namespace MyFootballProject
     public partial class WorkerControl1 : UserControl
     {
         FootballProjectEntities db = new FootballProjectEntities();
+        AllWorker selectedWorker;
         public WorkerControl1()
         {
             InitializeComponent();
@@ -27,7 +28,8 @@ namespace MyFootballProject
                 w.Id,
                 w.Firstname,
                 w.Lastname,   
-                w.WorkerEmail
+                w.WorkerEmail,
+                w.WorkerPassword
                 
             }).ToList();
             dtgWorker.Columns[0].Visible = false;
@@ -48,6 +50,8 @@ namespace MyFootballProject
             }
         }
         #endregion
+
+        #region btnAddCustomer
         private void btnAddCustomer_Click(object sender, EventArgs e)
         {
             string firstname = txtFirstName.Text;
@@ -78,5 +82,84 @@ namespace MyFootballProject
                
             }
         }
+        #endregion
+
+        #region IsBtnVisible
+        public void IsBtnVisible(string txt)
+        {
+            if (txt == "edit")
+            {
+                btnDelete.Visible = true;
+                btnEdit.Visible = true;
+                btnAdd.Visible = false;
+                panel5.Visible = false;
+            }
+            else
+            {
+                btnDelete.Visible = false;
+                btnEdit.Visible = false;
+                btnAdd.Visible = true;
+                panel5.Visible = true;
+            }
+        }
+        #endregion
+
+        #region btnEditWorker
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            IsBtnVisible("delete");
+            string workerfirstName = txtFirstName.Text;
+            string workerlastname = txtLastname.Text;
+            string workerEmail = txtEmail.Text;
+            string workerPas = txtPassword.Text;
+            string[] myArr = new string[] { workerfirstName, workerlastname, workerEmail, workerPas };
+            if (extentions.IsEmpty(myArr,string.Empty))
+            {
+                selectedWorker.Firstname = workerfirstName;
+                selectedWorker.Lastname = workerlastname;
+                selectedWorker.WorkerEmail = workerEmail;
+                selectedWorker.WorkerPassword = workerPas;
+                db.SaveChanges();
+                FillDataWorker();
+            }
+        }
+        #endregion
+
+        #region btnDeleteWorker
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            IsBtnVisible("delete");
+            var res = MessageBox.Show("Are you sure?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+            if (res == DialogResult.Yes)
+            {
+
+                db.AllWorkers.Remove(selectedWorker);
+                db.SaveChanges();
+                FillDataWorker();
+            };
+        }
+        #endregion
+
+        #region dtgWorker_RowHeaderMouseDoubleClick
+        private void dtgWorker_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            IsBtnVisible("edit");
+            int workerId = (int)dtgWorker.Rows[e.RowIndex].Cells[0].Value;
+            selectedWorker = db.AllWorkers.First(x => x.Id == workerId);
+            txtEmail.Text = selectedWorker.WorkerEmail;
+            txtFirstName.Text = selectedWorker.Firstname;
+            txtLastname.Text = selectedWorker.Lastname;
+            txtPassword.Text = selectedWorker.WorkerPassword;
+        }
+
+        #endregion
+
+        #region Load
+        private void WorkerControl1_Load(object sender, EventArgs e)
+        {
+            FillDataWorker();
+        }
+        #endregion
     }
 }

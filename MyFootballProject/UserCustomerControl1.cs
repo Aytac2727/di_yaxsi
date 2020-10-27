@@ -14,6 +14,7 @@ namespace MyFootballProject
     public partial class UserCustomerControl1 : UserControl
     {
         FootballProjectEntities db = new FootballProjectEntities();
+        Customer selectedCustomer;
         public UserCustomerControl1()
         {
             InitializeComponent();
@@ -81,5 +82,72 @@ namespace MyFootballProject
             }
         }
         #endregion
+
+        private void UserCustomerControl1_Load(object sender, EventArgs e)
+        {
+            FillDataCustomer();
+        }
+
+        #region IsBtnVisible
+        public void IsBtnVisible(string txt)
+        {
+            if (txt == "edit")
+            {
+                btnDelete.Visible = true;
+                btnEdit.Visible = true;
+                btnAdd.Visible = false;
+                panel5.Visible = false;
+            }
+            else
+            {
+                btnDelete.Visible = false;
+                btnEdit.Visible = false;
+                btnAdd.Visible = true;
+                panel5.Visible = true;
+            }
+        }
+        #endregion
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            IsBtnVisible("delete");
+            string cusName = txtFullName.Text;
+            int cusPhone = Convert.ToInt32(txtPhone.Text);
+            string cusAdress = txtAddress.Text;
+            string[] myArr = new string[] { cusName, cusAdress };
+            if (extentions.IsEmpty(myArr, string.Empty))
+            {
+                int CustId = db.Customers.First(x => x.Fullname == cusName).Id;
+                selectedCustomer.Fullname = cusName;
+                selectedCustomer.Phone = cusPhone;
+                selectedCustomer.Address = cusAdress;       
+                db.SaveChanges();
+                FillDataCustomer();
+            }
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            IsBtnVisible("delete");
+            var res = MessageBox.Show("Are you sure?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+            if (res == DialogResult.Yes)
+            {
+
+                db.Customers.Remove(selectedCustomer);
+                db.SaveChanges();
+                FillDataCustomer();
+            };
+        }
+
+        private void dtgCustomer_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            IsBtnVisible("edit");
+            int cusId = (int)dtgCustomer.Rows[e.RowIndex].Cells[0].Value;
+            selectedCustomer = db.Customers.First(x => x.Id == cusId);
+            txtFullName.Text = selectedCustomer.Fullname;
+            txtAddress.Text = selectedCustomer.Address;
+            txtPhone.Text = selectedCustomer.Phone.ToString();
+        }
     }
 }

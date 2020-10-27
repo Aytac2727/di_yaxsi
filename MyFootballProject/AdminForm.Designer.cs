@@ -30,6 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminForm));
             this.panelMenu = new System.Windows.Forms.Panel();
+            this.pictureBox7 = new System.Windows.Forms.PictureBox();
+            this.btnReport = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.btnWorker = new System.Windows.Forms.Button();
@@ -50,16 +52,18 @@
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.roomControl11 = new MyFootballProject.RoomControl1();
+            this.stadiumControl11 = new MyFootballProject.StadiumControl1();
+            this.userCustomerControl11 = new MyFootballProject.UserCustomerControl1();
+            this.homeControl11 = new MyFootballProject.HomeControl1();
             this.workerControl11 = new MyFootballProject.WorkerControl1();
             this.roomControl12 = new MyFootballProject.RoomControl1();
             this.stadiumControl12 = new MyFootballProject.StadiumControl1();
             this.userCustomerControl12 = new MyFootballProject.UserCustomerControl1();
             this.homeControl12 = new MyFootballProject.HomeControl1();
-            this.roomControl11 = new MyFootballProject.RoomControl1();
-            this.stadiumControl11 = new MyFootballProject.StadiumControl1();
-            this.userCustomerControl11 = new MyFootballProject.UserCustomerControl1();
-            this.homeControl11 = new MyFootballProject.HomeControl1();
+            this.reportControl11 = new MyFootballProject.ReportControl1();
             this.panelMenu.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picExit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
@@ -74,6 +78,8 @@
             // panelMenu
             // 
             this.panelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(23)))), ((int)(((byte)(23)))));
+            this.panelMenu.Controls.Add(this.pictureBox7);
+            this.panelMenu.Controls.Add(this.btnReport);
             this.panelMenu.Controls.Add(this.panel1);
             this.panelMenu.Controls.Add(this.pictureBox6);
             this.panelMenu.Controls.Add(this.btnWorker);
@@ -96,6 +102,36 @@
             this.panelMenu.Size = new System.Drawing.Size(191, 589);
             this.panelMenu.TabIndex = 0;
             // 
+            // pictureBox7
+            // 
+            this.pictureBox7.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox7.Image")));
+            this.pictureBox7.Location = new System.Drawing.Point(12, 446);
+            this.pictureBox7.Name = "pictureBox7";
+            this.pictureBox7.Size = new System.Drawing.Size(51, 43);
+            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox7.TabIndex = 18;
+            this.pictureBox7.TabStop = false;
+            // 
+            // btnReport
+            // 
+            this.btnReport.BackColor = System.Drawing.Color.Transparent;
+            this.btnReport.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnReport.FlatAppearance.BorderSize = 0;
+            this.btnReport.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(35)))), ((int)(((byte)(25)))));
+            this.btnReport.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(35)))), ((int)(((byte)(25)))));
+            this.btnReport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReport.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReport.ForeColor = System.Drawing.Color.White;
+            this.btnReport.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnReport.Location = new System.Drawing.Point(12, 441);
+            this.btnReport.Name = "btnReport";
+            this.btnReport.Size = new System.Drawing.Size(179, 53);
+            this.btnReport.TabIndex = 17;
+            this.btnReport.Text = "      Report";
+            this.btnReport.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnReport.UseVisualStyleBackColor = false;
+            this.btnReport.Click += new System.EventHandler(this.btnReport_Click);
+            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(137)))), ((int)(((byte)(115)))));
@@ -107,7 +143,7 @@
             // pictureBox6
             // 
             this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
-            this.pictureBox6.Location = new System.Drawing.Point(12, 382);
+            this.pictureBox6.Location = new System.Drawing.Point(12, 387);
             this.pictureBox6.Name = "pictureBox6";
             this.pictureBox6.Size = new System.Drawing.Size(51, 43);
             this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -342,6 +378,39 @@
             this.panel4.Size = new System.Drawing.Size(741, 487);
             this.panel4.TabIndex = 3;
             // 
+            // roomControl11
+            // 
+            this.roomControl11.BackColor = System.Drawing.Color.White;
+            this.roomControl11.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.roomControl11.Location = new System.Drawing.Point(0, 0);
+            this.roomControl11.Name = "roomControl11";
+            this.roomControl11.Size = new System.Drawing.Size(741, 487);
+            this.roomControl11.TabIndex = 3;
+            // 
+            // stadiumControl11
+            // 
+            this.stadiumControl11.BackColor = System.Drawing.Color.White;
+            this.stadiumControl11.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.stadiumControl11.Location = new System.Drawing.Point(0, 0);
+            this.stadiumControl11.Name = "stadiumControl11";
+            this.stadiumControl11.Size = new System.Drawing.Size(741, 487);
+            this.stadiumControl11.TabIndex = 2;
+            // 
+            // userCustomerControl11
+            // 
+            this.userCustomerControl11.BackColor = System.Drawing.Color.White;
+            this.userCustomerControl11.Location = new System.Drawing.Point(0, 0);
+            this.userCustomerControl11.Name = "userCustomerControl11";
+            this.userCustomerControl11.Size = new System.Drawing.Size(741, 487);
+            this.userCustomerControl11.TabIndex = 1;
+            // 
+            // homeControl11
+            // 
+            this.homeControl11.Location = new System.Drawing.Point(0, 0);
+            this.homeControl11.Name = "homeControl11";
+            this.homeControl11.Size = new System.Drawing.Size(741, 487);
+            this.homeControl11.TabIndex = 0;
+            // 
             // workerControl11
             // 
             this.workerControl11.BackColor = System.Drawing.Color.White;
@@ -383,38 +452,13 @@
             this.homeControl12.Size = new System.Drawing.Size(741, 487);
             this.homeControl12.TabIndex = 3;
             // 
-            // roomControl11
+            // reportControl11
             // 
-            this.roomControl11.BackColor = System.Drawing.Color.White;
-            this.roomControl11.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.roomControl11.Location = new System.Drawing.Point(0, 0);
-            this.roomControl11.Name = "roomControl11";
-            this.roomControl11.Size = new System.Drawing.Size(741, 487);
-            this.roomControl11.TabIndex = 3;
-            // 
-            // stadiumControl11
-            // 
-            this.stadiumControl11.BackColor = System.Drawing.Color.White;
-            this.stadiumControl11.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.stadiumControl11.Location = new System.Drawing.Point(0, 0);
-            this.stadiumControl11.Name = "stadiumControl11";
-            this.stadiumControl11.Size = new System.Drawing.Size(741, 487);
-            this.stadiumControl11.TabIndex = 2;
-            // 
-            // userCustomerControl11
-            // 
-            this.userCustomerControl11.BackColor = System.Drawing.Color.White;
-            this.userCustomerControl11.Location = new System.Drawing.Point(0, 0);
-            this.userCustomerControl11.Name = "userCustomerControl11";
-            this.userCustomerControl11.Size = new System.Drawing.Size(741, 487);
-            this.userCustomerControl11.TabIndex = 1;
-            // 
-            // homeControl11
-            // 
-            this.homeControl11.Location = new System.Drawing.Point(0, 0);
-            this.homeControl11.Name = "homeControl11";
-            this.homeControl11.Size = new System.Drawing.Size(741, 487);
-            this.homeControl11.TabIndex = 0;
+            this.reportControl11.BackColor = System.Drawing.Color.White;
+            this.reportControl11.Location = new System.Drawing.Point(191, 0);
+            this.reportControl11.Name = "reportControl11";
+            this.reportControl11.Size = new System.Drawing.Size(741, 487);
+            this.reportControl11.TabIndex = 8;
             // 
             // AdminForm
             // 
@@ -422,6 +466,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(932, 589);
+            this.Controls.Add(this.reportControl11);
             this.Controls.Add(this.workerControl11);
             this.Controls.Add(this.roomControl12);
             this.Controls.Add(this.stadiumControl12);
@@ -434,6 +479,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.panelMenu.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picExit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
@@ -480,6 +526,9 @@
         private System.Windows.Forms.PictureBox pictureBox6;
         private System.Windows.Forms.Panel panel1;
         private WorkerControl1 workerControl11;
+        private System.Windows.Forms.PictureBox pictureBox7;
+        private System.Windows.Forms.Button btnReport;
+        private ReportControl1 reportControl11;
     }
 }
 

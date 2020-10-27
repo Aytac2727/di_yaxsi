@@ -48,7 +48,6 @@
     </FunctionImport>
     <FunctionImport Name="sp_upgraddiagrams" />
     <EntitySet Name="Rooms" EntityType="FootballProjectModel.Room" />
-    <EntitySet Name="sysdiagrams" EntityType="FootballProjectModel.sysdiagram" />
     <EntitySet Name="Stadions" EntityType="FootballProjectModel.Stadion" />
     <EntitySet Name="AllWorkers" EntityType="FootballProjectModel.AllWorker" />
     <EntitySet Name="Customers" EntityType="FootballProjectModel.Customer" />
@@ -65,6 +64,7 @@
       <End Role="Stadion" EntitySet="Stadions" />
       <End Role="Rezerv" EntitySet="Rezervs" />
     </AssociationSet>
+    <EntitySet Name="sysdiagrams" EntityType="FootballProjectModel.sysdiagram" />
   </EntityContainer>
   <ComplexType Name="sp_helpdiagramdefinition_Result">
     <Property Type="Int32" Name="version" Nullable="true" />
@@ -85,16 +85,6 @@
     <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="Count" Type="Int32" Nullable="false" />
     <NavigationProperty Name="Rezervs" Relationship="FootballProjectModel.FK_Rezervs_Rooms" FromRole="Room" ToRole="Rezerv" />
-  </EntityType>
-  <EntityType Name="sysdiagram">
-    <Key>
-      <PropertyRef Name="diagram_id" />
-    </Key>
-    <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
-    <Property Name="principal_id" Type="Int32" Nullable="false" />
-    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="version" Type="Int32" />
-    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
   </EntityType>
   <EntityType Name="Stadion">
     <Key>
@@ -176,4 +166,14 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
 </Schema>

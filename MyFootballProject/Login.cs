@@ -55,6 +55,7 @@ namespace MyFootballProject
             {
                 if (selectedAdmin.AdminPassword == pas)
                 {
+                    LoginIsRemember(email, pas);
                     AdminForm adForm = new AdminForm();
                     adForm.Show();
                     this.WindowState = FormWindowState.Minimized;

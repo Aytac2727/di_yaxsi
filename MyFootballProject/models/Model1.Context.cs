@@ -30,11 +30,11 @@ namespace MyFootballProject.models
         public virtual DbSet<Admin> Admins { get; set; }
         public virtual DbSet<Report> Reports { get; set; }
         public virtual DbSet<Room> Rooms { get; set; }
-        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<Stadion> Stadions { get; set; }
         public virtual DbSet<AllWorker> AllWorkers { get; set; }
         public virtual DbSet<Customer> Customers { get; set; }
         public virtual DbSet<Rezerv> Rezervs { get; set; }
+        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
     
         public virtual int sp_alterdiagram(string diagramname, Nullable<int> owner_id, Nullable<int> version, byte[] definition)
         {

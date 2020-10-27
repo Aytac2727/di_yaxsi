@@ -39,6 +39,9 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="MyFootballProject">
+      <HintPath>obj\Debug\MyFootballProject.exe</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -121,6 +124,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReportControl1.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ReportControl1.Designer.cs">
+      <DependentUpon>ReportControl1.cs</DependentUpon>
+    </Compile>
     <Compile Include="RoomControl1.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -169,6 +178,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ReportControl1.resx">
+      <DependentUpon>ReportControl1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="RoomControl1.resx">
       <DependentUpon>RoomControl1.cs</DependentUpon>
     </EmbeddedResource>

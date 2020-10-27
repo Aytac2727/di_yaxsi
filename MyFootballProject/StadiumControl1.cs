@@ -20,6 +20,7 @@ namespace MyFootballProject
             InitializeComponent();
         }
 
+        #region FillDataStadium
         public void FillDataStadium()
         {
             dtgStadium.DataSource = db.Stadions.Select(st => new
@@ -30,9 +31,37 @@ namespace MyFootballProject
             dtgStadium.Columns[0].Visible = false;
             db.SaveChanges();
         }
+        #endregion
+
+        #region ClearAllData
+        public void ClearAllData()
+        {
+            foreach (var tx in this.Controls)
+            {
+                if (tx is TextBox)
+                {
+                    TextBox t = (TextBox)tx;
+                    t.Text = "";
+                }
+            }
+        }
+        #endregion
+
+        #region RowHeaderMouseDoubleClick
+        private void dtgStadium_RowHeaderMouseDoubleClick_1(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            IsBtnVisible("edit");
+            int stadiumId = (int)dtgStadium.Rows[e.RowIndex].Cells[0].Value;
+            selectedstadium = db.Stadions.First(x => x.Id == stadiumId);
+            txtStadium.Text = selectedstadium.Name;
+
+        }
+        #endregion
+
+        #region btnAdd
         private void btnAddStadium_Click(object sender, EventArgs e)
         {
-      
+           
             string stName = txtStadium.Text;
             if(stName != string.Empty)
             {
@@ -47,22 +76,12 @@ namespace MyFootballProject
             }
 
         }
+        #endregion
 
-        public void ClearAllData()
-        {
-            foreach (var tx in this.Controls)
-            {
-                if(tx is TextBox)
-                {
-                    TextBox t = (TextBox)tx;
-                    t.Text = "";
-                }
-            }
-        }
-      
-
+        #region btnDelete
         private void btnDelete_Click(object sender, EventArgs e)
-        {         
+        {
+            IsBtnVisible("delete");
             var res = MessageBox.Show("Are you sure?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
            
             if (res == DialogResult.Yes)
@@ -73,26 +92,34 @@ namespace MyFootballProject
                 FillDataStadium();
             };
         }
+        #endregion
 
-        private void dtgStadium_RowHeaderMouseDoubleClick_1(object sender, DataGridViewCellMouseEventArgs e)
+        #region IsBtnVisible
+        public void IsBtnVisible(string txt)
         {
-            btnDelete.Visible = true;
-            btnEdit.Visible = true;
-            btnAdd.Visible = false;
-            pic1.Visible = false;
-            pic2.Visible = false;
-            int stadiumId = (int)dtgStadium.Rows[e.RowIndex].Cells[0].Value;
-            selectedstadium = db.Stadions.First(x => x.Id == stadiumId);
-            txtStadium.Text = selectedstadium.Name;
-
+            if(txt == "edit")
+            {
+                btnDelete.Visible = true;
+                btnEdit.Visible = true;
+                btnAdd.Visible = false;
+                pic1.Visible = false;
+                pic2.Visible = false;
+            }
+            else
+            {
+                btnDelete.Visible = false;
+                btnEdit.Visible = false;
+                btnAdd.Visible = true;
+                pic1.Visible = true;
+                pic2.Visible = true;
+            }
         }
+        #endregion
 
+        #region btnEdit
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            btnEdit.Visible = true;
-            btnAdd.Visible = false;
-            pic1.Visible = false;
-            pic2.Visible = false;
+            IsBtnVisible("delete");
             string stadName = txtStadium.Text;
             if(stadName !=string.Empty)
             {
@@ -101,5 +128,14 @@ namespace MyFootballProject
                 FillDataStadium();
             }
         }
+        #endregion
+
+        #region Load
+         private void StadiumControl1_Load(object sender, EventArgs e)
+        {
+            FillDataStadium();
+        }
+         #endregion
+     
     }
 }

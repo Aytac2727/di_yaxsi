@@ -67,6 +67,13 @@ namespace MyFootballProject
             SlidePanel.Top = btnWorker.Top;
             workerControl11.BringToFront();
         }
+
+        private void btnReport_Click(object sender, EventArgs e)
+        {
+            SlidePanel.Height = btnReport.Height;
+            SlidePanel.Top = btnReport.Top;
+            reportControl11.BringToFront();
+        }
     }
     }
 
