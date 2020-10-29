@@ -14,7 +14,7 @@ namespace MyFootballProject
     public partial class RoomControl1 : UserControl
     {
         FootballProjectEntities db = new FootballProjectEntities();
-        Room selectedRoom;
+        
         public RoomControl1()
         {
             InitializeComponent();
@@ -95,7 +95,7 @@ namespace MyFootballProject
         }
         #endregion
 
-        #region btnEdit
+       /* #region btnEdit
         private void btnEdit_Click(object sender, EventArgs e)
         {
             IsBtnVisible("delete");
@@ -135,6 +135,6 @@ namespace MyFootballProject
             txtRoomName.Text = selectedRoom.Name;
            
         }
-        #endregion
+        #endregion */
     }
 }

@@ -14,7 +14,7 @@ namespace MyFootballProject
     public partial class WorkerControl1 : UserControl
     {
         FootballProjectEntities db = new FootballProjectEntities();
-        AllWorker selectedWorker;
+       
         public WorkerControl1()
         {
             InitializeComponent();
@@ -104,7 +104,8 @@ namespace MyFootballProject
         }
         #endregion
 
-        #region btnEditWorker
+        
+        /*#region btnEditWorker
         private void btnEdit_Click(object sender, EventArgs e)
         {
             IsBtnVisible("delete");
@@ -154,7 +155,7 @@ namespace MyFootballProject
         }
 
         #endregion
-
+        */
         #region Load
         private void WorkerControl1_Load(object sender, EventArgs e)
         {

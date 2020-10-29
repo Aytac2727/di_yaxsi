@@ -14,7 +14,7 @@ namespace MyFootballProject
     public partial class StadiumControl1 : UserControl
     {
         FootballProjectEntities db = new FootballProjectEntities();
-        Stadion selectedstadium;
+        
         public StadiumControl1()
         {
             InitializeComponent();
@@ -47,7 +47,27 @@ namespace MyFootballProject
         }
         #endregion
 
-        #region RowHeaderMouseDoubleClick
+        #region btnAdd
+        private void btnAddStadium_Click(object sender, EventArgs e)
+        {
+
+            string stName = txtStadium.Text;
+            if (stName != string.Empty)
+            {
+                Stadion newSt = new Stadion
+                {
+                    Name = stName
+                };
+                db.Stadions.Add(newSt);
+                db.SaveChanges();
+                FillDataStadium();
+                ClearAllData();
+            }
+
+        }
+        #endregion
+
+      /*  #region RowHeaderMouseDoubleClick
         private void dtgStadium_RowHeaderMouseDoubleClick_1(object sender, DataGridViewCellMouseEventArgs e)
         {
             IsBtnVisible("edit");
@@ -58,25 +78,7 @@ namespace MyFootballProject
         }
         #endregion
 
-        #region btnAdd
-        private void btnAddStadium_Click(object sender, EventArgs e)
-        {
-           
-            string stName = txtStadium.Text;
-            if(stName != string.Empty)
-            {
-                Stadion newSt = new Stadion
-                {
-                   Name = stName
-                };
-                db.Stadions.Add(newSt);
-                db.SaveChanges();
-                FillDataStadium();
-                ClearAllData();
-            }
-
-        }
-        #endregion
+       
 
         #region btnDelete
         private void btnDelete_Click(object sender, EventArgs e)
@@ -93,6 +95,20 @@ namespace MyFootballProject
             };
         }
         #endregion
+
+        #region btnEdit
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            IsBtnVisible("delete");
+            string stadName = txtStadium.Text;
+            if (stadName != string.Empty)
+            {
+                selectedstadium.Name = stadName;
+                db.SaveChanges();
+                FillDataStadium();
+            }
+        }
+        #endregion*/
 
         #region IsBtnVisible
         public void IsBtnVisible(string txt)
@@ -112,20 +128,6 @@ namespace MyFootballProject
                 btnAdd.Visible = true;
                 pic1.Visible = true;
                 pic2.Visible = true;
-            }
-        }
-        #endregion
-
-        #region btnEdit
-        private void btnEdit_Click(object sender, EventArgs e)
-        {
-            IsBtnVisible("delete");
-            string stadName = txtStadium.Text;
-            if(stadName !=string.Empty)
-            {
-                selectedstadium.Name = stadName;            
-                db.SaveChanges();
-                FillDataStadium();
             }
         }
         #endregion

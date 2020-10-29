@@ -14,7 +14,7 @@ namespace MyFootballProject
     public partial class UserCustomerControl1 : UserControl
     {
         FootballProjectEntities db = new FootballProjectEntities();
-        Customer selectedCustomer;
+        
         public UserCustomerControl1()
         {
             InitializeComponent();
@@ -107,7 +107,7 @@ namespace MyFootballProject
             }
         }
         #endregion
-
+        /*
         private void btnEdit_Click(object sender, EventArgs e)
         {
             IsBtnVisible("delete");
@@ -148,6 +148,6 @@ namespace MyFootballProject
             txtFullName.Text = selectedCustomer.Fullname;
             txtAddress.Text = selectedCustomer.Address;
             txtPhone.Text = selectedCustomer.Phone.ToString();
-        }
+        }*/
     }
 }

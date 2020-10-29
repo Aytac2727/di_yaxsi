@@ -251,7 +251,6 @@
             this.dtgWorker.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.dtgWorker.Size = new System.Drawing.Size(741, 224);
             this.dtgWorker.TabIndex = 76;
-            this.dtgWorker.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dtgWorker_RowHeaderMouseDoubleClick);
             // 
             // btnEdit
             // 
@@ -269,7 +268,6 @@
             this.btnEdit.Text = "Edit";
             this.btnEdit.UseVisualStyleBackColor = false;
             this.btnEdit.Visible = false;
-            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // btnDelete
             // 
@@ -286,8 +284,6 @@
             this.btnDelete.TabIndex = 78;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = false;
-            this.btnDelete.Visible = false;
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // WorkerControl1
             // 
